@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.smartparkingapp.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1a1a1a;">
+         <left>
+            <ImageView fitHeight="400.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../../Images/RegisterPage/SmartParkingLogo.png" />
+               </image>
+            </ImageView>
+         </left>
+         <right>
+            <AnchorPane prefHeight="200.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ChoiceBox fx:id="choiceBoxField" layoutX="100.0" layoutY="62.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-background-color: white;" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="90.0" />
+                  <TextField fx:id="usernameField" alignment="CENTER" layoutX="101.0" layoutY="126.0" promptText="Username" style="-fx-background-radius: 10px; -fx-background-color: white;" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="130.0" />
+                  <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="350.0" style="-fx-alignment: center;" text="Welcome to Smart Parking!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorMessage" alignment="CENTER" layoutX="169.0" layoutY="60.0" prefHeight="17.0" prefWidth="12.0" style="-fx-alignment: center;" />
+                  <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="101.0" layoutY="175.0" promptText="Password" style="-fx-background-radius: 10px; -fx-background-color: white;" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="170.0" />
+                  <TextField fx:id="plateNumberField" alignment="CENTER" layoutX="101.0" layoutY="220.0" promptText="PlateNumber" style="-fx-background-radius: 10px; -fx-background-color: white;" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="210.0" />
+                  <Button fx:id="registerButton" alignment="CENTER" layoutX="136.0" layoutY="277.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10px;" text="REGISTER" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="280.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="250.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10px;" text="Go back to Log In" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="350.0" />
+               </children>
+            </AnchorPane>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
