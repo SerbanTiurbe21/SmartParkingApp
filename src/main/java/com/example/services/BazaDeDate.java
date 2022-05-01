@@ -112,4 +112,25 @@ public class BazaDeDate {
         }
     }
 
+    public static boolean isLoggedIn(Connection connection,String username, String password, String role, String plateNumber) throws CompleteLoginDataException {
+        String sql = "SELECT * FROM users WHERE username = ? and password = ? and role = ? and platenumber = ?";
+        String myPassword = encodePassword(username,password);
+        try{
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setString(1,username);
+            pst.setString(2,myPassword);
+            pst.setString(3,role);
+            pst.setString(4,plateNumber);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+            else{
+                throw new CompleteLoginDataException();
+            }
+        }catch (Exception e){
+            throw new CompleteLoginDataException();
+        }
+    }
+
 }
