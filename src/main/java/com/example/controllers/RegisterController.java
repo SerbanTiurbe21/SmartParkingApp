@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,6 +21,7 @@ import java.sql.ResultSet;
 
 import static com.example.services.BazaDeDate.insertValues;
 import static com.example.services.BazaDeDate.getConnection;
+import static com.example.services.BazaDeDate.isLoggedIn;
 
 public class RegisterController {
 
@@ -37,6 +39,9 @@ public class RegisterController {
 
     @FXML
     private Text errorMessageText;
+
+    @FXML
+    private Button backToLogInButton;
 
     @FXML
     private PasswordField passwordField;
@@ -59,6 +64,20 @@ public class RegisterController {
                     (String) choiceBoxField.getValue(),
                     0,
                     plateNumberField.getText());
+        }catch (Exception e){
+            errorMessageText.setText(e.getMessage());
+        }
+    }
+
+    @FXML
+    void onBackToLogInButton(ActionEvent event) {
+        try{
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/login-view.fxml").toUri().toURL();
+            root = FXMLLoader.load(url);
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }catch (Exception e){
             errorMessageText.setText(e.getMessage());
         }
