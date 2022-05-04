@@ -10,7 +10,7 @@ import java.sql.*;
 public class BazaDeDate {
     static String url = "jdbc:mysql://localhost:3306/bazameadedate";
     static String user = "root";
-    static String password = "21102001serby";
+    static String password = "admin";
 
     public static Connection getConnection() throws Exception{
         Connection connection = DriverManager.getConnection(url,user,password);
