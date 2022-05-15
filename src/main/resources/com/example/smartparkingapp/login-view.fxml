@@ -11,14 +11,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.LoginController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <left>
             <ImageView fitHeight="400.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../../../Images/RegisterPage/SmartParkingLogo.png" />
+                  <Image url="@../../../Images.RegisterPage/SmartParkingLogo.png" />
                </image>
             </ImageView>
          </left>
@@ -42,13 +41,13 @@
                      </font>
                   </Text>
                   <PasswordField fx:id="passwordField" layoutX="30.0" layoutY="201.0" style="-fx-border-color: gray; -fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="201.0" />
-                  <Button fx:id="logInButton" layoutX="149.0" layoutY="284.0" mnemonicParsing="false" style="-fx-background-color: #eb060d; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 15px;" text="Log In" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="284.0">
+                  <Button fx:id="logInButton" layoutX="149.0" layoutY="284.0" mnemonicParsing="false" onAction="#onLoginButtonClick" style="-fx-background-color: #eb060d; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 15px;" text="Log In" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="284.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
                   <Text layoutX="30.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You don't have an account?" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="335.05078125" />
-                  <Hyperlink fx:id="registerHyperLink" layoutX="261.0" layoutY="332.0" text="Register" textFill="#eb060d" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="332.0" />
+                  <Hyperlink fx:id="registerHyperLink" layoutX="261.0" layoutY="332.0" onAction="#onRegisterButtonClick" text="Register" textFill="#eb060d" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="332.0" />
                   <Text fx:id="errorMessage" fill="#eb060d" layoutX="165.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="250.05078125" />
                </children>
             </AnchorPane>
