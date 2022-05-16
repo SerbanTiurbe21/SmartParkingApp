@@ -30,7 +30,7 @@
          </children>
       </Pane>
       <Label fx:id="labelMort" layoutX="512.0" layoutY="318.0" />
-      <Label fx:id="usernameLabel" layoutX="480.0" layoutY="32.0" prefHeight="20.0" prefWidth="122.0" style="-fx-background-color: #1a1a1a; -fx-alignment: center;" text="username" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="20.0">
+      <Label fx:id="usernameLabel" layoutX="480.0" layoutY="32.0" prefHeight="20.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="username" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="20.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
@@ -38,7 +38,7 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Label>
-      <Button fx:id="previousPageButton" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#onPreviousPageButton" style="-fx-background-color: #1a1a1a;" text="Previous page" textFill="WHITE" AnchorPane.leftAnchor="10.0">
+      <Button fx:id="previousPageButton" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#onPreviousPageButton" style="-fx-background-color: transparent;" text="Previous page" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
