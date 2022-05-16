@@ -16,7 +16,7 @@
             <Image url="@../../../Images/DepositPage/Background.png" />
          </image>
       </ImageView>
-      <Label fx:id="usernameLabel" layoutX="693.0" layoutY="41.0" prefHeight="25.0" prefWidth="97.0" style="-fx-font-size: 15; -fx-background-color: #1a1a1a; -fx-alignment: center;" text="username" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="usernameLabel" layoutX="693.0" layoutY="41.0" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="username" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
@@ -45,7 +45,7 @@
             <Label fx:id="depositLabel" layoutX="40.0" layoutY="35.0" prefHeight="17.0" prefWidth="67.0" style="-fx-alignment: center;" text="Label" />
          </children>
       </Pane>
-      <Button fx:id="previousPageButton" layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#onPreviousPageButtonClick" prefHeight="34.0" prefWidth="153.0" style="-fx-background-color: #1a1a1a;" text="PREVIOUS PAGE" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="previousPageButton" layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#onPreviousPageButtonClick" prefHeight="34.0" prefWidth="153.0" style="-fx-background-color: transparent;" text="PREVIOUS PAGE" textAlignment="CENTER" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
