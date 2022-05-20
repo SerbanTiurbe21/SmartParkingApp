@@ -1,4 +1,4 @@
 package com.example.controllers;
 
-public class LoginController {
+public class LoginController{
 }
