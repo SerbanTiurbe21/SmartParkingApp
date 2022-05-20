@@ -1,11 +1,15 @@
 package com.example.services;
 
 import com.example.exceptions.*;
+import com.example.model.Parking;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -200,5 +204,35 @@ public class BazaDeDate {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    public static ObservableList<Parking> getDataUsersFromTable1(Connection connection) throws Exception {
+        ObservableList<Parking> list = FXCollections.observableArrayList();
+        try{
+            String sql = "SELECT * FROM parcare1";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new Parking(rs.getString("sector"),rs.getInt("number"),rs.getBoolean("isoccupied")));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static ArrayList<Integer> getParcare1Number(Connection connection){
+        ArrayList<Integer> myValuesList = new ArrayList<>();
+        try{
+            String sql = "SELECT number from parcare1";
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            while(rs.next()){
+                myValuesList.add(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return myValuesList;
     }
 }
