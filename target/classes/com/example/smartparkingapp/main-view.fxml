@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="512.0" prefWidth="804.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.MainViewController">
+   <children>
+      <ImageView fitHeight="512.0" fitWidth="804.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 10%;">
+         <image>
+            <Image url="@../../../Images/DepositPage/Background.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="usernameLabel" layoutX="693.0" layoutY="41.0" prefHeight="25.0" prefWidth="97.0" style="-fx-font-size: 15; -fx-background-color: #1a1a1a; -fx-alignment: center;" text="username" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="272.0" layoutY="31.0" prefHeight="45.0" prefWidth="242.0" style="-fx-alignment: center; -fx-font-size: 30;" text="SMART PARKING" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label fx:id="welcomeText" alignment="CENTER" layoutX="254.0" layoutY="132.0" prefHeight="21.0" prefWidth="296.0" style="-fx-alignment: center; -fx-font-size: 15;" text="Label" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Pane layoutX="64.0" layoutY="190.0" prefHeight="200.0" prefWidth="600.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0">
+         <children>
+            <Button fx:id="findSpotButton" layoutX="88.0" layoutY="33.0" mnemonicParsing="false" onAction="#onFindButtonSpotClick" prefHeight="35.0" prefWidth="189.0" style="-fx-background-radius: 15px; -fx-background-color: white;" text="FIND A PARKING SPOT" />
+            <Button fx:id="depositButton" layoutX="88.0" layoutY="100.0" mnemonicParsing="false" onAction="#onDepositButtonClick" prefHeight="35.0" prefWidth="189.0" style="-fx-background-radius: 15px; -fx-background-color: white;" text="DEPOSIT" />
+            <Button fx:id="favouritesButton" layoutX="367.0" layoutY="33.0" mnemonicParsing="false" onAction="#onFavouritesButtonClick" prefHeight="35.0" prefWidth="189.0" style="-fx-background-radius: 15px; -fx-background-color: white;" text="FAVOURITE PARKING SPOTS" />
+            <Button fx:id="paymentButton" layoutX="367.0" layoutY="100.0" mnemonicParsing="false" onAction="#onPaymentButtonClick" prefHeight="35.0" prefWidth="189.0" style="-fx-background-radius: 15px; -fx-background-color: white;" text="SEE PAYMENT HISTORY" />
+         </children>
+      </Pane>
+      <Pane layoutX="329.0" layoutY="410.0" prefHeight="70.0" prefWidth="146.0" style="-fx-background-radius: 15px; -fx-background-color: white;">
+         <children>
+            <Text layoutX="44.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BALANCE" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Label fx:id="depositLabel" layoutX="40.0" layoutY="35.0" prefHeight="17.0" prefWidth="67.0" style="-fx-alignment: center;" text="Label" />
+         </children>
+      </Pane>
+      <Button fx:id="previousPageButton" layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#onPreviousPageButtonClick" prefHeight="34.0" prefWidth="153.0" style="-fx-background-color: #1a1a1a;" text="PREVIOUS PAGE" textAlignment="CENTER" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/DepositPage/icons8-back-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

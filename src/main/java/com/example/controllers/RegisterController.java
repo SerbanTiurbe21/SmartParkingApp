@@ -64,6 +64,7 @@ public class RegisterController {
                     (String) choiceBoxField.getValue(),
                     0,
                     plateNumberField.getText());
+            errorMessageText.setText("Account created successfully");
         }catch (Exception e){
             errorMessageText.setText(e.getMessage());
         }

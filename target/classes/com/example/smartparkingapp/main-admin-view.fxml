@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.MainViewAdminController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 10%;">
+         <image>
+            <Image url="@../../../Images/DepositPage/Background.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="67.0" layoutY="100.0" prefHeight="200.0" prefWidth="479.0">
+         <children>
+            <Button fx:id="modifySpotButton" layoutX="14.0" layoutY="88.0" mnemonicParsing="false" onAction="#onModifySpotButtonClick" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="MODIFY A PARKING SPOT" />
+            <Button fx:id="paymentHistoryButton" layoutX="272.0" layoutY="88.0" mnemonicParsing="false" onAction="#onPaymentHistoryButtonClick" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="SEE USER'S PAYMENT HISTORY" />
+         </children>
+      </Pane>
+      <Label fx:id="welcomeText" layoutX="183.0" layoutY="92.0" prefHeight="17.0" prefWidth="241.0" style="-fx-alignment: center;" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="previousPageButton" layoutX="31.0" layoutY="26.0" mnemonicParsing="false" onAction="#onPreviousPageButton" style="-fx-background-color: #1a1a1a;" text="Previous page" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="448.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/DepositPage/icons8-back-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="usernameLabel" layoutX="485.0" layoutY="33.0" prefHeight="20.0" prefWidth="122.0" style="-fx-background-color: #1a1a1a; -fx-alignment: center;" text="username" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="207.0" layoutY="26.0" prefHeight="35.0" prefWidth="200.0" text="SMART PARKING" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
