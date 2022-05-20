@@ -6,6 +6,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BazaDeDate {
     static String url = "jdbc:mysql://localhost:3306/bazameadedate";
@@ -23,13 +25,16 @@ public class BazaDeDate {
         System.out.println("Connection is successfull to the database! " + url);
     }
 
-    public static void insertValues(Connection connection,String username, String password, String role, int balance, String plateNumber) throws SQLException, CompleteRegisterDataException, UsernameNotLongEnoughException, PasswordNotLongEnoughException, PasswordNotStrongEnoughException, UserAlreadyExistsException {
+    public static void insertValues(Connection connection,String username, String password, String role, int balance, String plateNumber) throws SQLException, CompleteRegisterDataException, UsernameNotLongEnoughException, PasswordNotLongEnoughException, PasswordNotStrongEnoughException, UserAlreadyExistsException, InvalidPlateNumberException {
         String sqlInsertwithParams = "INSERT INTO users(username,password,role,balance,platenumber)" + "VALUES(?,?,?,?,?)";
         //checkCredentials(username,password);
         checkRegisterDataNotEmpty(username,password);
         userAlreadyExists(connection,username);
         checkUsernameLength(username);
         checkPasswordStrength(password);
+        if(role.equals("client")) {
+            checkPlateNumber(plateNumber);
+        }
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlInsertwithParams);
             preparedStatement.setString(1,username);
@@ -130,6 +135,13 @@ public class BazaDeDate {
             }
         }catch (Exception e){
             throw new CompleteLoginDataException();
+        }
+    }
+
+    private static void checkPlateNumber(String plateNumber) throws InvalidPlateNumberException {
+        Matcher matcher = Pattern.compile("^[A-Z]{2}\\s[1-9]{2}\\s[A-Z]{3}$").matcher(plateNumber);
+        if(!matcher.find()){
+            throw new InvalidPlateNumberException();
         }
     }
 

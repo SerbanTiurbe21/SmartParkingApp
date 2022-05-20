@@ -17,7 +17,7 @@
          <left>
             <ImageView fitHeight="400.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../../../Images.RegisterPage/SmartParkingLogo.png" />
+                  <Image url="@../../../Images/RegisterPage/SmartParkingLogo.png" />
                </image>
             </ImageView>
          </left>
