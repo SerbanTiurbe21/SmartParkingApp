@@ -25,7 +25,7 @@ public class BazaDeDate {
         System.out.println("Connection is successfull to the database! " + url);
     }
 
-    public static void insertValues(Connection connection,String username, String password, String role, int balance, String plateNumber) throws SQLException, CompleteRegisterDataException, UsernameNotLongEnoughException, PasswordNotLongEnoughException, PasswordNotStrongEnoughException, UserAlreadyExistsException, InvalidPlateNumberException {
+    public static void insertValues(Connection connection,String username, String password, String role, int balance, String plateNumber) throws SQLException, CompleteRegisterDataException, UsernameNotLongEnoughException, PasswordNotLongEnoughException, PasswordNotStrongEnoughException, UserAlreadyExistsException, InvalidPlateNumberException, NotAnAdminException {
         String sqlInsertwithParams = "INSERT INTO users(username,password,role,balance,platenumber)" + "VALUES(?,?,?,?,?)";
         //checkCredentials(username,password);
         checkRegisterDataNotEmpty(username,password);
@@ -34,6 +34,9 @@ public class BazaDeDate {
         checkPasswordStrength(password);
         if(role.equals("client")) {
             checkPlateNumber(plateNumber);
+        }
+        else if (role.equals("admin")){
+            checkPlateNumberForAdmin(plateNumber);
         }
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlInsertwithParams);
@@ -142,6 +145,12 @@ public class BazaDeDate {
         Matcher matcher = Pattern.compile("^[A-Z]{2}\\s[1-9]{2}\\s[A-Z]{3}$").matcher(plateNumber);
         if(!matcher.find()){
             throw new InvalidPlateNumberException();
+        }
+    }
+
+    private static void checkPlateNumberForAdmin(String plateNumber) throws NotAnAdminException {
+        if(!plateNumber.equals("SECHQFAWYA")){
+            throw new NotAnAdminException();
         }
     }
 
