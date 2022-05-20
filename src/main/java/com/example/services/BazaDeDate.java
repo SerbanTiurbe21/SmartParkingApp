@@ -154,4 +154,51 @@ public class BazaDeDate {
         }
     }
 
+    public static String getUserRole(Connection connection, String username) throws SQLException {
+        String sql = "SELECT * FROM users WHERE username = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1,username);
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                return rs.getString("role");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String getUserPlateNumber(Connection connection, String username) throws SQLException {
+        String sql = "SELECT * FROM users WHERE username = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1,username);
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                return rs.getString("platenumber");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    public static int getUsersBalance(Connection connection, String username) throws Exception {
+        String sql = "SELECT * from users where username = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1,username);
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                return rs.getInt("balance");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }
