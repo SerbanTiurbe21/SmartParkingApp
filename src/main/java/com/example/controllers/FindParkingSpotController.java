@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -271,4 +273,26 @@ public class FindParkingSpotController {
             errorLabel.setText(e.getMessage());
         }
     }
+
+    @FXML
+    void onRentButtonClick(ActionEvent event) throws Exception {
+        try{
+            Connection connection = getConnection();
+            index = parcareTable.getSelectionModel().getSelectedIndex();
+            if(index <= -1){
+                return;
+            }
+
+            String sql = "UPDATE parcare1 set isoccupied = ?, username = ? where number = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,1);
+            ps.setString(2,usernameText.getText());
+            ps.setInt(3,numberColumn.getCellData(index));
+            ps.executeUpdate();
+            payText.setText("Are you sure that you want to rent this spot? If YES, then press PAY!!!");
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
+        }
+    }
+
 }
