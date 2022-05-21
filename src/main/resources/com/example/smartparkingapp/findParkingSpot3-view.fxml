@@ -26,7 +26,7 @@
                 </ImageView>
             </graphic></Button>
         <Label fx:id="usernameText" layoutX="646.0" layoutY="19.0" prefHeight="17.0" prefWidth="85.0" text="Label" textFill="WHITE" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
-        <Button fx:id="payButton" layoutX="647.0" layoutY="367.0" mnemonicParsing="false" onAction="#onPayButtonClick" prefHeight="25.0" prefWidth="60.0" style="-fx-background-radius: 15px; -fx-background-color: white;" text="PAY" />
+        <Button fx:id="payButton" layoutX="629.0" layoutY="367.0" mnemonicParsing="false" onAction="#onPayButtonClick" prefHeight="25.0" prefWidth="78.0" style="-fx-background-radius: 15px; -fx-background-color: white;" text="RENT&amp;PAY" />
         <Label fx:id="errorLabel" layoutX="263.0" layoutY="441.0" prefHeight="46.0" prefWidth="231.0" style="-fx-alignment: center;" textFill="WHITE" />
         <Button fx:id="parcareAButton" layoutX="42.0" layoutY="92.0" mnemonicParsing="false" onAction="#onParcareAButtonClick" prefWidth="120.0" style="-fx-background-radius: 15px; -fx-background-color: white;" text="PARCARE A" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="90.0" />
         <Button fx:id="backToDepsosit" layoutX="26.0" layoutY="429.0" mnemonicParsing="false" onAction="#onBackToDepsositClick" prefHeight="25.0" prefWidth="120.0" style="-fx-background-radius: 15px; -fx-background-color: white;" text="BACK TO DEPOSIT" AnchorPane.leftAnchor="30.0" />
