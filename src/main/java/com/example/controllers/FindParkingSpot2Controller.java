@@ -139,8 +139,8 @@ public class FindParkingSpot2Controller {
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //DepositController depositController = loader.getController();
-            //depositController.setText(usernameText.getText());
+            DepositController depositController = loader.getController();
+            depositController.setText(usernameText.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -198,8 +198,8 @@ public class FindParkingSpot2Controller {
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //FindParkingSpot3Controller findParkingSpot3Controller = loader.getController();
-            //findParkingSpot3Controller.setUsernameText(usernameText.getText());
+            FindParkingSpot3Controller findParkingSpot3Controller = loader.getController();
+            findParkingSpot3Controller.setUsernameText(usernameText.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
