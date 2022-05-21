@@ -95,7 +95,7 @@ public class MainViewController {
 
             FavouriteParkingSpotsController favouriteParkingSpotsController = loader.getController();
             favouriteParkingSpotsController.setUsernameLabel(getUserName());
-            /*
+
             int i = 0;
             if(BazaDeDate.getUserParkingAOption(BazaDeDate.getConnection(),getUserName()).equals("true"))
                 favouriteParkingSpotsController.adauga(i,"PARKING A");
@@ -103,7 +103,7 @@ public class MainViewController {
                 favouriteParkingSpotsController.adauga(i,"PARKING B");
             if(BazaDeDate.getUserParkingCOption(BazaDeDate.getConnection(),getUserName()).equals("true"))
                 favouriteParkingSpotsController.adauga(i,"PARKING C");
-            */
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
