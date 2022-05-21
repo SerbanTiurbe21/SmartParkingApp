@@ -393,4 +393,33 @@ public class BazaDeDate {
         }
     }
 
+    public static String getUserCashHistory(Connection connection, String username){
+        String result = new String();
+        try{
+            String sql = "SELECT payment from userpaymenthistory";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                result = rs.getString(1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static String getUserDateHistory(Connection connection, String username){
+        String result = new String();
+        try{
+            String sql = "SELECT date from userpaymenthistory";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                result = rs.getString(1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
