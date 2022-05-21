@@ -8,4 +8,5 @@ module com.example.smartparkingapp {
     exports com.example.smartparkingapp;
     exports com.example.controllers;
     opens com.example.controllers to javafx.fxml;
+    exports com.example.model;
 }

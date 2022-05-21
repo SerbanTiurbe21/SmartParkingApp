@@ -20,6 +20,9 @@ public class MainViewController {
     private Parent root;
 
     @FXML
+    private Label welcomeText;
+
+    @FXML
     private Button depositButton;
 
     @FXML
@@ -27,9 +30,6 @@ public class MainViewController {
 
     @FXML
     private Label usernameLabel;
-
-    @FXML
-    private Label welcomeText;
 
     @FXML
     private Button favouritesButton;
@@ -69,12 +69,12 @@ public class MainViewController {
     @FXML
     public void onDepositButtonClick(ActionEvent event){
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/deposit-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/deposit-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //DepositController depositController = loader.getController();
-            //depositController.setText(usernameLabel.getText());
+            DepositController depositController = loader.getController();
+            depositController.setText(usernameLabel.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -88,13 +88,14 @@ public class MainViewController {
     @FXML
     void onFavouritesButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/favouriteParkingSpots-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/favouriteParkingSpot-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            /*
+
             FavouriteParkingSpotsController favouriteParkingSpotsController = loader.getController();
-            favouriteParkingSpotsController.setUsernameText(getUserName());
+            favouriteParkingSpotsController.setUsernameLabel(getUserName());
+
             int i = 0;
             if(BazaDeDate.getUserParkingAOption(BazaDeDate.getConnection(),getUserName()).equals("true"))
                 favouriteParkingSpotsController.adauga(i,"PARKING A");
@@ -102,7 +103,7 @@ public class MainViewController {
                 favouriteParkingSpotsController.adauga(i,"PARKING B");
             if(BazaDeDate.getUserParkingCOption(BazaDeDate.getConnection(),getUserName()).equals("true"))
                 favouriteParkingSpotsController.adauga(i,"PARKING C");
-            */
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -115,12 +116,12 @@ public class MainViewController {
     @FXML
     void onFindButtonSpotClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/findParkingSpot-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/findParkingSpot-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //FindParkingSpotController findParkingSpotController = loader.getController();
-            //findParkingSpotController.setUsernameText(getUserName());
+            FindParkingSpotController findParkingSpotController = loader.getController();
+            findParkingSpotController.setUsernameText(getUserName());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -134,12 +135,14 @@ public class MainViewController {
     @FXML
     void onPaymentButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/seePaymentHistory-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/seePaymentHistory-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //SeePaymentHistoryController seePaymentHistoryController = loader.getController();
-            //seePaymentHistoryController.setUsernameText(getUserName());
+            SeePaymentHistoryController seePaymentHistoryController = loader.getController();
+            seePaymentHistoryController.setUsernameText(usernameLabel.getText());
+            //DepositController depositController = loader.getController();
+            //depositController.setText(usernameLabel.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -153,7 +156,7 @@ public class MainViewController {
     @FXML
     void onPreviousPageButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/login-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/login-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

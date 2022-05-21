@@ -40,7 +40,7 @@
       <TextField fx:id="sectorField" layoutX="9.0" layoutY="86.0" promptText="Sector" style="-fx-alignment: center; -fx-background-radius: 15px; -fx-background-color: white;" />
       <TextField fx:id="numberField" layoutX="9.0" layoutY="119.0" promptText="Number" style="-fx-alignment: center; -fx-background-radius: 15px; -fx-background-color: white;" />
       <TextField fx:id="occupiedField" layoutX="9.0" layoutY="152.0" promptText="Ocuppied" style="-fx-alignment: center; -fx-background-radius: 15px; -fx-background-color: white;" />
-      <Button fx:id="parcare1Button1" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onAction="#onParcare1ButtonClicked" style="-fx-background-color: #1a1a1a; -fx-background-radius: 15px;" text="Previous Page" textFill="WHITE" AnchorPane.leftAnchor="10.0">
+      <Button fx:id="parcare1Button1" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onAction="#onPreviousPageButtonClick" style="-fx-background-color: #1a1a1a; -fx-background-radius: 15px;" text="Previous Page" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -52,5 +52,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <Label fx:id="usernameLabel" layoutX="23.0" layoutY="14.0" prefHeight="17.0" prefWidth="139.0" style="-fx-alignment: center;" text="Label" textFill="WHITE" />
    </children>
 </AnchorPane>

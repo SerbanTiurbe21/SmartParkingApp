@@ -1,49 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.RegisterController">
+<AnchorPane prefWidth="460.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ModifyParkingSpot3Controller">
     <children>
-        <BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1a1a1a;">
-            <left>
-                <ImageView fitHeight="400.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+        <ImageView fitHeight="333.0" fitWidth="501.0" layoutX="161.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 10%;">
+            <image>
+                <Image url="@../../../Images/DepositPage/Background.png" />
+            </image>
+        </ImageView>
+        <TableView fx:id="parcare1Table" layoutX="159.0" layoutY="86.0" onMouseClicked="#getSelected" prefHeight="349.0" prefWidth="501.0" style="-fx-background-color: transparent;">
+            <columns>
+                <TableColumn fx:id="sectorColumn" prefWidth="165.0" text="SECTOR" />
+                <TableColumn fx:id="numberColumn" prefWidth="172.0" text="NUMBER" />
+                <TableColumn fx:id="occupiedColumn" prefWidth="187.0" text="OCCUPIED" />
+            </columns>
+        </TableView>
+        <Pane layoutX="8.0" layoutY="234.0" prefHeight="167.0" prefWidth="151.0">
+            <children>
+                <Button fx:id="addButton" layoutX="50.0" layoutY="20.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="ADD" />
+                <Button fx:id="updateButton" layoutX="50.0" layoutY="59.0" mnemonicParsing="false" onAction="#onUpdateButtonClicked" style="-fx-background-color: white; -fx-background-radius: 15px;" text="UPDATE" />
+                <Button fx:id="deleteButton" layoutX="50.0" layoutY="101.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="DELETE" />
+                <Button fx:id="refreshButton" layoutX="48.0" layoutY="141.0" mnemonicParsing="false" onAction="#onRefreshButtonClicked" style="-fx-background-color: white; -fx-background-radius: 15px;" text="REFRESH" />
+            </children>
+        </Pane>
+        <Button fx:id="parcare1Button" layoutX="208.0" layoutY="43.0" mnemonicParsing="false" onAction="#onParcare1ButtonClicked" style="-fx-background-color: white; -fx-background-radius: 15px;" text="PARCARE 1" />
+        <Button fx:id="parcare2Button" layoutX="371.0" layoutY="43.0" mnemonicParsing="false" onAction="#onParcare2ButtonClicked" style="-fx-background-color: white; -fx-background-radius: 15px;" text="PARCARE 2" />
+        <Button fx:id="parcare3Button" layoutX="558.0" layoutY="43.0" mnemonicParsing="false" onAction="#onParcare3ButtonClicked" style="-fx-background-color: white; -fx-background-radius: 15px;" text="PARCARE 3" />
+        <Label fx:id="errorLabel" layoutX="323.0" layoutY="468.0" prefHeight="17.0" prefWidth="171.0" style="-fx-alignment: center;" />
+        <TextField fx:id="sectorField" layoutX="9.0" layoutY="86.0" promptText="Sector" style="-fx-alignment: center; -fx-background-radius: 15px; -fx-background-color: white;" />
+        <TextField fx:id="numberField" layoutX="9.0" layoutY="119.0" promptText="Number" style="-fx-alignment: center; -fx-background-radius: 15px; -fx-background-color: white;" />
+        <TextField fx:id="occupiedField" layoutX="9.0" layoutY="152.0" promptText="Ocuppied" style="-fx-alignment: center; -fx-background-radius: 15px; -fx-background-color: white;" />
+        <Button fx:id="parcare1Button1" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onAction="#onPreviousPageButtonClicked" style="-fx-background-color: #1a1a1a; -fx-background-radius: 15px;" text="Previous Page" textFill="WHITE" AnchorPane.leftAnchor="10.0">
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../Images/RegisterPage/SmartParkingLogo.png" />
+                        <Image url="@../../../Images/DepositPage/icons8-back-24.png" />
                     </image>
                 </ImageView>
-            </left>
-            <right>
-                <AnchorPane prefHeight="200.0" prefWidth="350.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <ChoiceBox fx:id="choiceBoxField" layoutX="100.0" layoutY="62.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-background-color: white;" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="90.0" />
-                        <TextField fx:id="usernameField" alignment="CENTER" layoutX="101.0" layoutY="126.0" promptText="Username" style="-fx-background-radius: 10px; -fx-background-color: white;" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="130.0" />
-                        <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="350.0" style="-fx-alignment: center;" text="Welcome to Smart Parking!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
-                            <font>
-                                <Font name="System Bold" size="24.0" />
-                            </font>
-                        </Label>
-                        <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="101.0" layoutY="175.0" promptText="Password" style="-fx-background-radius: 10px; -fx-background-color: white;" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="170.0" />
-                        <TextField fx:id="plateNumberField" alignment="CENTER" layoutX="101.0" layoutY="220.0" promptText="PlateNumber" style="-fx-background-radius: 10px; -fx-background-color: white;" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="210.0" />
-                        <Button fx:id="registerButton" alignment="CENTER" layoutX="136.0" layoutY="277.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" style="-fx-background-color: white; -fx-background-radius: 10px;" text="REGISTER" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="280.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <Button fx:id="backToLogInButton" alignment="CENTER" layoutX="250.0" layoutY="346.0" mnemonicParsing="false" onAction="#onBackToLogInButton" style="-fx-background-color: white; -fx-background-radius: 10px;" text="Go back to Log In" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="350.0" />
-                        <Text fx:id="errorMessageText" fill="WHITE" layoutX="30.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="292.0" />
-                    </children>
-                </AnchorPane>
-            </right>
-        </BorderPane>
+            </graphic>
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+      <Label fx:id="usernameLabel" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="149.0" style="-fx-alignment: center;" textFill="WHITE" />
     </children>
 </AnchorPane>

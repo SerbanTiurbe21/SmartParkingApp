@@ -112,7 +112,7 @@ public class FindParkingSpot3Controller {
     @FXML
     void onPreviousPageButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/main-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -134,12 +134,12 @@ public class FindParkingSpot3Controller {
     @FXML
     void onBackToDepsositClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/deposit-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/deposit-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //DepositController depositController = loader.getController();
-            //depositController.setText(usernameText.getText());
+            DepositController depositController = loader.getController();
+            depositController.setText(usernameText.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -155,7 +155,7 @@ public class FindParkingSpot3Controller {
     @FXML
     void onParcareAButtonClick(ActionEvent event) {
         try {
-            URL url = Paths.get("src/main/resources/com/example/demo1/findParkingSpot-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/findParkingSpot-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -174,7 +174,7 @@ public class FindParkingSpot3Controller {
     @FXML
     void onParcareBButtonClick(ActionEvent event) {
         try {
-            URL url = Paths.get("src/main/resources/com/example/demo1/findParkingSpot2-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/findParkingSpot2-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -193,7 +193,7 @@ public class FindParkingSpot3Controller {
     @FXML
     void onParcareCButtonClick(ActionEvent event) {
         try {
-            URL url = Paths.get("src/main/resources/com/example/demo1/findParkingSpot3-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/findParkingSpot3-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -271,7 +271,7 @@ public class FindParkingSpot3Controller {
             throw new NumbersNotWordsException();
         }
     }
-
+  
     private void rent(){
         try{
             Connection connection = getConnection();
@@ -287,6 +287,35 @@ public class FindParkingSpot3Controller {
             ps.setInt(3,numberColumn.getCellData(index));
             ps.executeUpdate();
             payText.setText("Are you sure that you want to rent this spot? If YES, then press PAY!!!");
+          }catch (Exception e){
+            errorLabel.setText(e.getMessage());
+        }
+    }
+  
+    @FXML
+    void onRentButtonClick(ActionEvent event) throws Exception {
+        Connection connection = getConnection();
+        index = parcareTable.getSelectionModel().getSelectedIndex();
+        if(index <= -1){
+            return;
+        }
+
+        String sql = "UPDATE parcare3 set isoccupied = ?, username = ? where number = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1,1);
+        ps.setString(2,usernameText.getText());
+        ps.setInt(3,numberColumn.getCellData(index));
+        ps.executeUpdate();
+        payText.setText("Are you sure that you want to rent this spot? If YES, then press PAY!!!");
+    }
+
+    @FXML
+    void onFavouriteButtonClick(ActionEvent event) throws Exception {
+        Connection connection = getConnection();
+        String parkingName = parcareCButton.getText();
+        String userName = usernameText.getText();
+        try{
+            updateUsersFavouriteParkingC(connection,userName);
         }catch (Exception e){
             errorLabel.setText(e.getMessage());
         }
