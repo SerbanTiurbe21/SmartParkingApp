@@ -64,7 +64,7 @@ public class FavouriteParkingSpotsController implements Initializable {
     @FXML
     void onPreviousPageButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/main-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 

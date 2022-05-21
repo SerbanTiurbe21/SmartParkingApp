@@ -65,14 +65,14 @@ public class LoginController{
                 stage.setScene(scene);
                 stage.show();
                  */
-                URL url = Paths.get("src/main/resources/com/example/demo1/main-view.fxml").toUri().toURL();
+                URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-view.fxml").toUri().toURL();
                 FXMLLoader loader = new FXMLLoader(url);
                 root = loader.load();
 
-                //MainViewController mainViewController = loader.getController();
-                //mainViewController.displayName(usernameField.getText());
-                //mainViewController.setWelcomeText("Welcome, "+usernameField.getText());
-                //mainViewController.setDepositLabelText(Integer.toString(getUsersBalance(getConnection(),usernameField.getText())));
+                MainViewController mainViewController = loader.getController();
+                mainViewController.displayName(usernameField.getText());
+                mainViewController.setWelcomeText("Welcome, "+usernameField.getText());
+                mainViewController.setDepositLabelText(Integer.toString(getUsersBalance(getConnection(),usernameField.getText())));
 
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
@@ -85,13 +85,13 @@ public class LoginController{
                             usernameField.getText()),
                     getUserPlateNumber(getConnection(),
                             usernameField.getText()))==true && getUserRole(getConnection(),usernameField.getText()).equals("admin")){
-                URL url = Paths.get("src/main/resources/com/example/demo1/main-admin-view.fxml").toUri().toURL();
+                URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-admin-view.fxml").toUri().toURL();
                 FXMLLoader loader = new FXMLLoader(url);
                 root = loader.load();
 
-                //MainViewAdminController mainViewAdminController = loader.getController();
-                //mainViewAdminController.setUsernameLabel(getUserName());
-                //mainViewAdminController.setWelcomeText(getUserName());
+                MainViewAdminController mainViewAdminController = loader.getController();
+                mainViewAdminController.setUsernameLabel(getUserName());
+                mainViewAdminController.setWelcomeText(getUserName());
 
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
@@ -106,7 +106,7 @@ public class LoginController{
     @FXML
     void onRegisterButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/register-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/register-view.fxml").toUri().toURL();
             root = FXMLLoader.load(url);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

@@ -200,7 +200,7 @@ public class ModifyParkingSpot2Controller {
     @FXML
     void onParcare1ButtonClicked(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/modify-parkingSpot1-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot1-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -215,7 +215,7 @@ public class ModifyParkingSpot2Controller {
     @FXML
     void onParcare2ButtonClicked(ActionEvent event) {
         try {
-            URL url = Paths.get("src/main/resources/com/example/demo1/modify-parkingSpot2-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot2-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -230,7 +230,7 @@ public class ModifyParkingSpot2Controller {
     @FXML
     void onParcare3ButtonClicked(ActionEvent event) {
         try {
-            URL url = Paths.get("src/main/resources/com/example/demo1/modify-parkingSpot3-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot3-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -245,7 +245,7 @@ public class ModifyParkingSpot2Controller {
     @FXML
     void onRefreshButtonClicked(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/modify-parkingSpot2-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot2-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
