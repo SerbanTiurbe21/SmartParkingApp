@@ -159,6 +159,11 @@ public class MainViewController {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/login-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            BazaDeDate.deselectFromTable1(BazaDeDate.getConnection(),usernameLabel.getText());
+            BazaDeDate.deselectFromTable2(BazaDeDate.getConnection(),usernameLabel.getText());
+            BazaDeDate.deselectFromTable3(BazaDeDate.getConnection(),usernameLabel.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
