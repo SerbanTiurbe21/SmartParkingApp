@@ -455,4 +455,13 @@ public class BazaDeDate {
             e.printStackTrace();
         }
     }
+
+    public static void updateUsersBalance(Connection connection, String username, int value) throws SQLException {
+        String sql = "UPDATE users SET balance = balance + ? WHERE username = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1,value);
+        ps.setString(2,username);
+
+        ps.executeUpdate();
+    }
 }
