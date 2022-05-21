@@ -235,4 +235,34 @@ public class BazaDeDate {
         }
         return myValuesList;
     }
+
+    public static ArrayList<Integer> getParcare2Number(Connection connection){
+        ArrayList<Integer> myValuesList = new ArrayList<>();
+        try{
+            String sql = "SELECT number from parcare2";
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            while(rs.next()){
+                myValuesList.add(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return myValuesList;
+    }
+
+    public static ObservableList<Parking> getDataUsersFromTable2(Connection connection) throws Exception {
+        ObservableList<Parking> list = FXCollections.observableArrayList();
+        try{
+            String sql = "SELECT * FROM parcare2";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new Parking(rs.getString("sector"),rs.getInt("number"),rs.getBoolean("isoccupied")));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
