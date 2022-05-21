@@ -10,8 +10,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class BazaDeDate {
     static String url = "jdbc:mysql://localhost:3306/bazameadedate";
@@ -324,6 +326,71 @@ public class BazaDeDate {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public static boolean checkSufficientFounds(Connection connection, String username, int value) throws Exception {
+        int founds = getUsersBalance(connection,username);
+        if(founds- value < 0){
+            throw new InsufficientFoundsException();
+        }
+        return true;
+    }
+
+    public static void decreaseUsersBalance(Connection connection, String username, int value) throws SQLException {
+        String sql = "UPDATE users SET balance = balance - ? WHERE username = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1,value);
+        ps.setString(2,username);
+
+        ps.executeUpdate();
+    }
+
+
+    public static void addInPaymentHistory(Connection connection, String username1, ArrayList<Integer> collection, ArrayList<String> date) throws SQLException, UserAlreadyExistsException {
+        ArrayList<Integer> collection1 = new ArrayList<>();
+        List<String> collection2 = new ArrayList<>();
+        List<String> dateCollection = new ArrayList<>();
+
+        for(int i=0;i<collection.size();i++){
+            collection2.add(Integer.toString(collection.get(i)));
+        }
+
+        for(int i=0;i< date.size();i++){
+            dateCollection.add(date.get(i));
+        }
+
+        try{
+            //sa adaug in lista ce are in momentu de fata
+            PreparedStatement preparedStatement2 = connection.prepareStatement("SELECT date from userpaymenthistory where username = ?");
+            preparedStatement2.setString(1,username1);
+            ResultSet resultSet = preparedStatement2.executeQuery();
+            while(resultSet.next()){
+                dateCollection.add(resultSet.getString(1));
+            }
+
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT payment from userpaymenthistory where username = ?");
+            preparedStatement.setString(1,username1);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                collection2.add(rs.getString(1));
+            }
+
+            String result = collection2.stream().map(i -> String.valueOf(i)).collect(Collectors.joining(" ", "", " "));
+            String resultDate = dateCollection.stream().map(i -> String.valueOf(i)).collect(Collectors.joining(" ", "", " "));
+
+            PreparedStatement statement = connection.prepareStatement("update userpaymenthistory set payment = concat(?,'')  where username = ?");
+            statement.setString(1, result);
+            statement.setString(2,username1);
+            statement.executeUpdate();
+
+            PreparedStatement preparedStatement1 = connection.prepareStatement("update userpaymenthistory set date = concat(?,'') where username = ?");
+            preparedStatement1.setString(1,resultDate);
+            preparedStatement1.setString(2,username1);
+            preparedStatement1.executeUpdate();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

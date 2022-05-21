@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import com.example.exceptions.NumbersNotWordsException;
 import com.example.model.Parking;
 import com.example.model.User;
 import javafx.collections.ObservableList;
@@ -28,6 +29,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.example.model.User.*;
 
@@ -39,6 +42,9 @@ public class FindParkingSpot3Controller {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private TextField hours;
 
     @FXML
     private TableColumn<Parking, Integer> numberColumn;
@@ -225,6 +231,39 @@ public class FindParkingSpot3Controller {
             parcareTable.setItems(parkingList);
         }catch (Exception e){
             errorLabel.setText(e.getMessage());
+        }
+    }
+    @FXML
+    void onPayButtonClick(ActionEvent event) throws NumbersNotWordsException {
+        validateHoursField(hours.getText());
+        int value = Integer.parseInt(hours.getText()) * 7;
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+        String str = formatter.format(date);
+        Collection<Integer> collection = new ArrayList<>();
+        ArrayList<Integer> altaColectie = new ArrayList<>();
+        ArrayList<String> dateTimeCollection = new ArrayList<>();
+        try{
+            if(checkSufficientFounds(getConnection(),usernameText.getText(),100)==true){
+                dateTimeCollection.add(str);
+                collection.add(value);
+                decreaseUsersBalance(getConnection(),usernameText.getText(),100);
+                Integer array[] = collection.toArray(new Integer[collection.size()]);
+                for(int i=0;i<array.length;i++){
+                    altaColectie.add(array[i]);
+                }
+                addInPaymentHistory(getConnection(),usernameText.getText(),altaColectie,dateTimeCollection);
+            }
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
+        }
+    }
+
+    private void validateHoursField(String text) throws NumbersNotWordsException {
+        text = hours.getText();
+        Matcher matcher = Pattern.compile("^[0-9]{1,2}$").matcher(text);
+        if(!matcher.find()){
+            throw new NumbersNotWordsException();
         }
     }
 
