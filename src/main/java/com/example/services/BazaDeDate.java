@@ -265,4 +265,19 @@ public class BazaDeDate {
         }
         return list;
     }
+
+    public static ArrayList<Integer> getParcare3Number(Connection connection){
+        ArrayList<Integer> myValuesList = new ArrayList<>();
+        try{
+            String sql = "SELECT number from parcare3";
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            while(rs.next()){
+                myValuesList.add(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return myValuesList;
+    }
 }
