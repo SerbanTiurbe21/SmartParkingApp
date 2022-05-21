@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import com.example.exceptions.InsertNumberException;
 import com.example.exceptions.NumbersNotWordsException;
 import com.example.model.Parking;
 import javafx.collections.ObservableList;
@@ -239,23 +240,27 @@ public class FindParkingSpotController {
 
     @FXML
     void onPayButtonClick(ActionEvent event) throws NumbersNotWordsException {
-        validateHoursField(hours.getText());
-        int value = Integer.parseInt(hours.getText()) * 7;
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-        String str = formatter.format(date);
-        Collection<Integer> collection = new ArrayList<>();
-        ArrayList<Integer> altaColectie = new ArrayList<>();
-        ArrayList<String> dateTimeCollection = new ArrayList<>();
         try{
-            if(checkSufficientFounds(getConnection(),usernameText.getText(),100)==true){
+            Date date = new Date();
+            validateHoursField(hours.getText());
+            if(hours.getText().equals(new String())){
+                throw new InsertNumberException();
+            }
+            int value = Integer.parseInt(hours.getText()) * 7;
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+            String str = formatter.format(date);
+            Collection<Integer> collection = new ArrayList<>();
+            ArrayList<Integer> altaColectie = new ArrayList<>();
+            ArrayList<String> dateTimeCollection = new ArrayList<>();
+            if(checkSufficientFounds(getConnection(),usernameText.getText(),value)==true){
                 dateTimeCollection.add(str);
                 collection.add(value);
-                decreaseUsersBalance(getConnection(),usernameText.getText(),value);
+                decreaseUsersBalance(getConnection(),usernameText.getText(),100);
                 Integer array[] = collection.toArray(new Integer[collection.size()]);
                 for(int i=0;i<array.length;i++){
                     altaColectie.add(array[i]);
                 }
+                rent();
                 addInPaymentHistory(getConnection(),usernameText.getText(),altaColectie,dateTimeCollection);
                 URL url = Paths.get("src/main/resources/com/example/smartparkingapp/findParkingSpot-view.fxml").toUri().toURL();
                 FXMLLoader loader = new FXMLLoader(url);
@@ -263,12 +268,32 @@ public class FindParkingSpotController {
 
                 FindParkingSpotController findParkingSpotController = loader.getController();
                 findParkingSpotController.setUsernameText(usernameText.getText());
-
+              
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
             }
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
+        }
+    }
+
+    private void rent(){
+        try{
+            Connection connection = getConnection();
+            index = parcareTable.getSelectionModel().getSelectedIndex();
+            if(index <= -1){
+                return;
+            }
+
+            String sql = "UPDATE parcare1 set isoccupied = ?, username = ? where number = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,1);
+            ps.setString(2,usernameText.getText());
+            ps.setInt(3,numberColumn.getCellData(index));
+            ps.executeUpdate();
+            payText.setText("Are you sure that you want to rent this spot? If YES, then press PAY!!!");
         }catch (Exception e){
             errorLabel.setText(e.getMessage());
         }
