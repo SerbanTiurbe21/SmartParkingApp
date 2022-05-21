@@ -280,4 +280,20 @@ public class BazaDeDate {
         }
         return myValuesList;
     }
+
+    public static ObservableList<Parking> getFreeSpotsTableA(Connection connection) throws Exception{
+        ObservableList<Parking> list = FXCollections.observableArrayList();
+        try{
+            String sql = "SELECT * FROM parcare1 where isoccupied = false ";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new Parking(rs.getString("sector"),rs.getInt("number"),rs.getBoolean("isoccupied")));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 }
