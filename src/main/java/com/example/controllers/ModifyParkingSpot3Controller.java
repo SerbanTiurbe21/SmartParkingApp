@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,10 +29,17 @@ import java.util.ResourceBundle;
 import static com.example.services.BazaDeDate.*;
 import static com.example.services.BazaDeDate.getConnection;
 
-public class ModifyParkingSpot3Controller {
+public class ModifyParkingSpot3Controller implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    public void setUsernameLabel(String text){
+        usernameLabel.setText(text);
+    }
+
+    @FXML
+    private Label usernameLabel;
 
     @FXML
     private Button addButton;
@@ -187,6 +195,10 @@ public class ModifyParkingSpot3Controller {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot1-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            ModifyParkingSpot1Controller modifyParkingSpot1Controller = loader.getController();
+            modifyParkingSpot1Controller.setUsernameLabel(usernameLabel.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -202,6 +214,10 @@ public class ModifyParkingSpot3Controller {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot2-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            ModifyParkingSpot2Controller modifyParkingSpot2Controller = loader.getController();
+            modifyParkingSpot2Controller.setUsernameLabel(usernameLabel.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -217,6 +233,10 @@ public class ModifyParkingSpot3Controller {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot3-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            ModifyParkingSpot3Controller modifyParkingSpot3Controller = loader.getController();
+            modifyParkingSpot3Controller.setUsernameLabel(usernameLabel.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -262,6 +282,10 @@ public class ModifyParkingSpot3Controller {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot3-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            ModifyParkingSpot3Controller modifyParkingSpot3Controller = loader.getController();
+            modifyParkingSpot3Controller.setUsernameLabel(usernameLabel.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -271,18 +295,21 @@ public class ModifyParkingSpot3Controller {
         }
     }
 
-    public static ObservableList<Parking> getDataUsersFromTable3(Connection connection) throws Exception {
-        ObservableList<Parking> list = FXCollections.observableArrayList();
+    @FXML
+    void onPreviousPageButtonClicked(ActionEvent event) {
         try{
-            String sql = "SELECT * FROM parcare3";
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                list.add(new Parking(rs.getString("sector"),rs.getInt("number"),rs.getBoolean("isoccupied")));
-            }
-        }catch(Exception e){
-            e.printStackTrace();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-admin-view.fxml").toUri().toURL();
+            FXMLLoader loader = new FXMLLoader(url);
+            root = loader.load();
+
+            MainViewAdminController mainViewAdminController = loader.getController();
+            mainViewAdminController.setUsernameLabel(usernameLabel.getText());
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
         }
-        return list;
     }
 }

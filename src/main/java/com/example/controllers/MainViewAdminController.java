@@ -65,6 +65,9 @@ public class MainViewAdminController {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot1-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            ModifyParkingSpot1Controller modifyParkingSpot1Controller = loader.getController();
+            modifyParkingSpot1Controller.setUsernameLabel(usernameLabel.getText());
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -108,6 +111,7 @@ public class MainViewAdminController {
         }
     }
 
+    /*
     @FXML
     void onFindButtonSpotClick(ActionEvent event) {
         try{
@@ -122,6 +126,7 @@ public class MainViewAdminController {
             errorLabel.setText(e.getMessage());
         }
     }
+    */
 
     public void setUsernameField(String text) {
         usernameLabel.setText(text);

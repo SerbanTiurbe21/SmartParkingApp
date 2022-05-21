@@ -137,8 +137,8 @@ public class FindParkingSpot3Controller {
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //DepositController depositController = loader.getController();
-            //depositController.setText(usernameText.getText());
+            DepositController depositController = loader.getController();
+            depositController.setText(usernameText.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -275,7 +275,7 @@ public class FindParkingSpot3Controller {
             return;
         }
 
-        String sql = "UPDATE parcare1 set isoccupied = ?, username = ? where number = ?";
+        String sql = "UPDATE parcare3 set isoccupied = ?, username = ? where number = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1,1);
         ps.setString(2,usernameText.getText());

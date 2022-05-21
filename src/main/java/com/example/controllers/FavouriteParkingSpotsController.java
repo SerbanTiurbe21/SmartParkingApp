@@ -53,8 +53,8 @@ public class FavouriteParkingSpotsController implements Initializable {
         return usernameLabel.getText();
     }
 
-    public void setUsernameText(String username){
-        usernameLabel.setText(username);
+    public void setUsernameLabel(String text){
+        usernameLabel.setText(text);
     }
 
     public void adauga(int index,String nume){
@@ -69,8 +69,8 @@ public class FavouriteParkingSpotsController implements Initializable {
             root = loader.load();
 
             MainViewController mainViewController = loader.getController();
-            mainViewController.setUsernameField(getUserName());
-            mainViewController.setWelcomeText(getUserName());
+            mainViewController.setUsernameField(usernameLabel.getText());
+            mainViewController.setWelcomeText(usernameLabel.getText());
             mainViewController.setDepositLabelText(Integer.toString(getUsersBalance(getConnection(),usernameLabel.getText())));
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

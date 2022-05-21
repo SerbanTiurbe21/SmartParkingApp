@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -36,7 +37,7 @@ import com.example.model.User.*;
 
 import static com.example.services.BazaDeDate.*;
 
-public class FindParkingSpot2Controller {
+public class FindParkingSpot2Controller{
 
     private Stage stage;
     private Scene scene;
@@ -278,7 +279,7 @@ public class FindParkingSpot2Controller {
             return;
         }
 
-        String sql = "UPDATE parcare1 set isoccupied = ?, username = ? where number = ?";
+        String sql = "UPDATE parcare2 set isoccupied = ?, username = ? where number = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1,1);
         ps.setString(2,usernameText.getText());

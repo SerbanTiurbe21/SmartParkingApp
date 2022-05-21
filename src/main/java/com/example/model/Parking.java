@@ -1,9 +1,9 @@
 package com.example.model;
 
 public class Parking {
-    private String sector;
-    private int number;
-    private boolean isOccupied;
+    String sector;
+    int number;
+    boolean isOccupied;
 
     public Parking(String sector, int number, boolean isOccupied) {
         this.sector = sector;
