@@ -2,6 +2,7 @@ package com.example.services;
 
 import com.example.exceptions.*;
 import com.example.model.Parking;
+import com.example.model.UserPaymentHistoryClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -10,6 +11,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -463,5 +465,22 @@ public class BazaDeDate {
         ps.setString(2,username);
 
         ps.executeUpdate();
+    }
+
+    public static ObservableList<UserPaymentHistoryClass> getUserPaymentHistory(Connection connection){
+        ObservableList<UserPaymentHistoryClass> list = FXCollections.observableArrayList();
+        Collection<String> stringList = new ArrayList<>();
+        try{
+            String sql = "SELECT * FROM userpaymenthistory";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String payment = rs.getString("payment");
+                list.add(new UserPaymentHistoryClass(rs.getInt("id"),rs.getString("username"),payment,rs.getString("date")));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return list;
     }
 }

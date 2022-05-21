@@ -122,4 +122,8 @@ public class MainViewAdminController {
             errorLabel.setText(e.getMessage());
         }
     }
+
+    public void setUsernameField(String text) {
+        usernameLabel.setText(text);
+    }
 }
