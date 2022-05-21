@@ -280,13 +280,13 @@ public class FindParkingSpot3Controller {
                 return;
             }
 
-            String sql = "UPDATE parcare1 set isoccupied = ?, username = ? where number = ?";
+            String sql = "UPDATE parcare3 set isoccupied = ?, username = ? where number = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1,1);
             ps.setString(2,usernameText.getText());
             ps.setInt(3,numberColumn.getCellData(index));
             ps.executeUpdate();
-            payText.setText("Are you sure that you want to rent this spot? If YES, then press PAY!!!");
+            //payText.setText("Are you sure that you want to rent this spot? If YES, then press PAY!!!");
           }catch (Exception e){
             errorLabel.setText(e.getMessage());
         }
