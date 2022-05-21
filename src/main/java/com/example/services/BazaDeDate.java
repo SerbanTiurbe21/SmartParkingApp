@@ -498,4 +498,52 @@ public class BazaDeDate {
         }
         return list;
     }
+
+    public static String getUserParkingAOption(Connection connection, String username){
+        String result = new String();
+        try{
+            String sql = "select parkA from users where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                result = (String.valueOf(resultSet.getBoolean(1)));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static String getUserParkingBOption(Connection connection, String username){
+        String result = new String();
+        try{
+            String sql = "select parkB from users where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                result = (String.valueOf(resultSet.getBoolean(1)));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static String getUserParkingCOption(Connection connection, String username){
+        String result = new String();
+        try{
+            String sql = "select parkC from users where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                result = (String.valueOf(resultSet.getBoolean(1)));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
