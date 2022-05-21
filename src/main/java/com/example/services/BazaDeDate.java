@@ -546,4 +546,37 @@ public class BazaDeDate {
         }
         return result;
     }
+
+    public static void deselectFromTable1(Connection connection, String username){
+        try{
+            String sql = "UPDATE parcare1 set username = null where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void deselectFromTable2(Connection connection, String username){
+        try{
+            String sql = "UPDATE parcare2 set username = null where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void deselectFromTable3(Connection connection, String username){
+        try{
+            String sql = "UPDATE parcare3 set username = null where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
