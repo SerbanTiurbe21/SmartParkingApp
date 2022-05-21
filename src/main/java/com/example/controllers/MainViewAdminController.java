@@ -62,7 +62,7 @@ public class MainViewAdminController {
     @FXML
     void onModifySpotButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/modify-parkingSpot1-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot1-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -77,12 +77,12 @@ public class MainViewAdminController {
     @FXML
     void onPaymentHistoryButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/seePaymentHistoryAll-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/seePaymentHistoryAll-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //SeePaymentHistoryAllController seePaymentHistoryAllController = loader.getController();
-            //seePaymentHistoryAllController.setUsernameLabel(usernameLabel.getText());
+            SeePaymentHistoryAllController seePaymentHistoryAllController = loader.getController();
+            seePaymentHistoryAllController.setUsernameLabel(usernameLabel.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -96,7 +96,7 @@ public class MainViewAdminController {
     @FXML
     void onPreviousPageButton(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/login-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/login-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -111,7 +111,7 @@ public class MainViewAdminController {
     @FXML
     void onFindButtonSpotClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/demo1/findParkingSpot-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/findParkingSpot-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

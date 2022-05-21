@@ -18,7 +18,7 @@ import java.nio.file.Paths;
 import static com.example.services.BazaDeDate.getConnection;
 import static com.example.services.BazaDeDate.getUserPaymentHistory;
 
-public class SeePaymentHistoryControllerAll {
+public class SeePaymentHistoryAllController {
     private Stage stage;
     private Scene scene;
     private Parent root;
