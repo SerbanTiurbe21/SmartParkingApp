@@ -422,4 +422,37 @@ public class BazaDeDate {
         }
         return result;
     }
+
+    public static void updateUsersFavouriteParkingA(Connection connection, String username){
+        try{
+            String sql = "UPDATE users set parkA = true where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateUsersFavouriteParkingB(Connection connection, String username){
+        try{
+            String sql = "UPDATE users set parkB = true where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateUsersFavouriteParkingC(Connection connection, String username){
+        try{
+            String sql = "UPDATE users set parkC = true where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
