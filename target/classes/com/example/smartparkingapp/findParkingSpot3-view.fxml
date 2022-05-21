@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="718.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.FindParkingSpotController">
+<AnchorPane prefHeight="500.0" prefWidth="718.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.FindParkingSpot3Controller">
     <children>
         <ImageView fitHeight="500.0" fitWidth="760.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 10%;">
             <image>

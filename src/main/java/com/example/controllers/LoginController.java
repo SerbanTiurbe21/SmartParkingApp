@@ -57,14 +57,7 @@ public class LoginController{
                             usernameField.getText()),
                     getUserPlateNumber(getConnection(),
                             usernameField.getText()))==true && getUserRole(getConnection(),usernameField.getText()).equals("client")){
-                /*
-                URL url = Paths.get("src/main/resources/com/example/demo1/main-view.fxml").toUri().toURL();
-                root = FXMLLoader.load(url);
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-                 */
+
                 URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-view.fxml").toUri().toURL();
                 FXMLLoader loader = new FXMLLoader(url);
                 root = loader.load();

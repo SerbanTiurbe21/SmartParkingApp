@@ -483,4 +483,19 @@ public class BazaDeDate {
         }
         return list;
     }
+
+    public static ObservableList<Parking> getDataUsersFromTable3(Connection connection) throws Exception {
+        ObservableList<Parking> list = FXCollections.observableArrayList();
+        try{
+            String sql = "SELECT * FROM parcare3";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new Parking(rs.getString("sector"),rs.getInt("number"),rs.getBoolean("isoccupied")));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

@@ -5,32 +5,53 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="521.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ModifyParkingSpot2Controller">
+<AnchorPane prefWidth="460.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ModifyParkingSpot2Controller">
     <children>
-        <TableView fx:id="parcare1Table" layoutX="159.0" layoutY="86.0" onMouseClicked="#getSelected" prefHeight="349.0" prefWidth="501.0">
+        <ImageView fitHeight="333.0" fitWidth="501.0" layoutX="161.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 10%;">
+            <image>
+                <Image url="@../../../Images/DepositPage/Background.png" />
+            </image>
+        </ImageView>
+        <TableView fx:id="parcare1Table" layoutX="159.0" layoutY="86.0" onMouseClicked="#getSelected" prefHeight="349.0" prefWidth="501.0" style="-fx-background-color: transparent;">
             <columns>
                 <TableColumn fx:id="sectorColumn" prefWidth="165.0" text="SECTOR" />
                 <TableColumn fx:id="numberColumn" prefWidth="172.0" text="NUMBER" />
                 <TableColumn fx:id="occupiedColumn" prefWidth="187.0" text="OCCUPIED" />
             </columns>
         </TableView>
-        <Pane layoutX="8.0" layoutY="277.0" prefHeight="167.0" prefWidth="151.0">
+        <Pane layoutX="8.0" layoutY="234.0" prefHeight="167.0" prefWidth="151.0">
             <children>
-                <Button fx:id="addButton" layoutX="50.0" layoutY="14.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="25.0" prefWidth="59.0" text="ADD" />
-                <Button fx:id="updateButton" layoutX="50.0" layoutY="59.0" mnemonicParsing="false" onAction="#onUpdateButtonClick" text="UPDATE" />
-                <Button fx:id="deleteButton" layoutX="50.0" layoutY="103.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="25.0" prefWidth="59.0" text="DELETE" />
+                <Button fx:id="addButton" layoutX="50.0" layoutY="20.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="ADD" />
+                <Button fx:id="updateButton" layoutX="50.0" layoutY="59.0" mnemonicParsing="false" onAction="#onUpdateButtonClick" style="-fx-background-color: white; -fx-background-radius: 15px;" text="UPDATE" />
+                <Button fx:id="deleteButton" layoutX="50.0" layoutY="101.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="DELETE" />
+                <Button fx:id="refreshButton" layoutX="48.0" layoutY="141.0" mnemonicParsing="false" onAction="#onRefreshButtonClicked" style="-fx-background-color: white; -fx-background-radius: 15px;" text="REFRESH" />
             </children>
         </Pane>
-        <Button fx:id="parcare1Button" layoutX="218.0" layoutY="43.0" mnemonicParsing="false" onAction="#onParcare1ButtonClicked" text="PARCARE 1" />
-        <Button fx:id="parcare2Button" layoutX="384.0" layoutY="43.0" mnemonicParsing="false" onAction="#onParcare2ButtonClicked" text="PARCARE 2" />
-        <Button fx:id="parcare3Button" layoutX="558.0" layoutY="43.0" mnemonicParsing="false" onAction="#onParcare3ButtonClicked" text="PARCARE 3" />
-        <Label fx:id="errorLabel" layoutX="323.0" layoutY="464.0" prefHeight="17.0" prefWidth="123.0" style="-fx-alignment: center;" />
-        <TextField fx:id="sectorField" layoutX="9.0" layoutY="117.0" />
-        <TextField fx:id="numberField" layoutX="9.0" layoutY="166.0" />
-        <TextField fx:id="occupiedField" layoutX="9.0" layoutY="218.0" />
-        <Button fx:id="refreshButton" layoutX="558.0" layoutY="460.0" mnemonicParsing="false" onAction="#onRefreshButtonClicked" text="REFRESH" />
+        <Button fx:id="parcare1Button" layoutX="208.0" layoutY="43.0" mnemonicParsing="false" onAction="#onParcare1ButtonClicked" style="-fx-background-color: white; -fx-background-radius: 15px;" text="PARCARE 1" />
+        <Button fx:id="parcare2Button" layoutX="371.0" layoutY="43.0" mnemonicParsing="false" onAction="#onParcare2ButtonClicked" style="-fx-background-color: white; -fx-background-radius: 15px;" text="PARCARE 2" />
+        <Button fx:id="parcare3Button" layoutX="558.0" layoutY="43.0" mnemonicParsing="false" onAction="#onParcare3ButtonClicked" style="-fx-background-color: white; -fx-background-radius: 15px;" text="PARCARE 3" />
+        <Label fx:id="errorLabel" layoutX="323.0" layoutY="468.0" prefHeight="17.0" prefWidth="171.0" style="-fx-alignment: center;" />
+        <TextField fx:id="sectorField" layoutX="9.0" layoutY="86.0" promptText="Sector" style="-fx-alignment: center; -fx-background-radius: 15px; -fx-background-color: white;" />
+        <TextField fx:id="numberField" layoutX="9.0" layoutY="119.0" promptText="Number" style="-fx-alignment: center; -fx-background-radius: 15px; -fx-background-color: white;" />
+        <TextField fx:id="occupiedField" layoutX="9.0" layoutY="152.0" promptText="Ocuppied" style="-fx-alignment: center; -fx-background-radius: 15px; -fx-background-color: white;" />
+        <Button fx:id="parcare1Button1" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onAction="#onPreviousPageButtonClick" style="-fx-background-color: #1a1a1a; -fx-background-radius: 15px;" text="Previous Page" textFill="WHITE" AnchorPane.leftAnchor="10.0">
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../Images/DepositPage/icons8-back-24.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+        <Label fx:id="usernameLabel" layoutX="23.0" layoutY="14.0" prefHeight="17.0" prefWidth="139.0" style="-fx-alignment: center;" text="Label" textFill="WHITE" />
     </children>
 </AnchorPane>

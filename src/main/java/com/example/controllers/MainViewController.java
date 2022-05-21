@@ -20,6 +20,9 @@ public class MainViewController {
     private Parent root;
 
     @FXML
+    private Label welcomeText;
+
+    @FXML
     private Button depositButton;
 
     @FXML
@@ -27,9 +30,6 @@ public class MainViewController {
 
     @FXML
     private Label usernameLabel;
-
-    @FXML
-    private Label welcomeText;
 
     @FXML
     private Button favouritesButton;
@@ -73,8 +73,8 @@ public class MainViewController {
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //DepositController depositController = loader.getController();
-            //depositController.setText(usernameLabel.getText());
+            DepositController depositController = loader.getController();
+            depositController.setText(usernameLabel.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -88,13 +88,14 @@ public class MainViewController {
     @FXML
     void onFavouritesButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/favouriteParkingSpots-view.fxml").toUri().toURL();
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/favouriteParkingSpot-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            /*
+
             FavouriteParkingSpotsController favouriteParkingSpotsController = loader.getController();
-            favouriteParkingSpotsController.setUsernameText(getUserName());
+            favouriteParkingSpotsController.setUsernameLabel(getUserName());
+            /*
             int i = 0;
             if(BazaDeDate.getUserParkingAOption(BazaDeDate.getConnection(),getUserName()).equals("true"))
                 favouriteParkingSpotsController.adauga(i,"PARKING A");
@@ -119,8 +120,8 @@ public class MainViewController {
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //FindParkingSpotController findParkingSpotController = loader.getController();
-            //findParkingSpotController.setUsernameText(getUserName());
+            FindParkingSpotController findParkingSpotController = loader.getController();
+            findParkingSpotController.setUsernameText(getUserName());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -139,7 +140,9 @@ public class MainViewController {
             root = loader.load();
 
             SeePaymentHistoryController seePaymentHistoryController = loader.getController();
-            seePaymentHistoryController.setUsernameText(getUserName());
+            seePaymentHistoryController.setUsernameText(usernameLabel.getText());
+            //DepositController depositController = loader.getController();
+            //depositController.setText(usernameLabel.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

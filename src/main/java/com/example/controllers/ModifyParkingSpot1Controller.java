@@ -29,10 +29,17 @@ import java.util.ResourceBundle;
 
 import static com.example.services.BazaDeDate.*;
 
-public class ModifyParkingSpot1Controller {
+public class ModifyParkingSpot1Controller implements Initializable{
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    public void setUsernameLabel(String text){
+        usernameLabel.setText(text);
+    }
+
+    @FXML
+    private Label usernameLabel;
 
     @FXML
     private Label errorLabel;
@@ -162,6 +169,10 @@ public class ModifyParkingSpot1Controller {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot1-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            ModifyParkingSpot1Controller modifyParkingSpot1Controller = loader.getController();
+            modifyParkingSpot1Controller.setUsernameLabel(usernameLabel.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -177,6 +188,10 @@ public class ModifyParkingSpot1Controller {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot2-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            ModifyParkingSpot2Controller modifyParkingSpot2Controller = loader.getController();
+            modifyParkingSpot2Controller.setUsernameLabel(usernameLabel.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -192,6 +207,10 @@ public class ModifyParkingSpot1Controller {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot3-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            ModifyParkingSpot3Controller modifyParkingSpot3Controller = loader.getController();
+            modifyParkingSpot3Controller.setUsernameLabel(usernameLabel.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -249,6 +268,29 @@ public class ModifyParkingSpot1Controller {
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot1-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
+
+            ModifyParkingSpot1Controller modifyParkingSpot1Controller = loader.getController();
+            modifyParkingSpot1Controller.setUsernameLabel(usernameLabel.getText());
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
+        }
+    }
+
+    @FXML
+    void onPreviousPageButtonClick(ActionEvent event) {
+        try{
+            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-admin-view.fxml").toUri().toURL();
+            FXMLLoader loader = new FXMLLoader(url);
+            root = loader.load();
+
+            MainViewAdminController mainViewAdminController = loader.getController();
+            mainViewAdminController.setUsernameLabel(usernameLabel.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
