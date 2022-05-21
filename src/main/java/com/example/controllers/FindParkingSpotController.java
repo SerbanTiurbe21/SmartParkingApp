@@ -295,4 +295,17 @@ public class FindParkingSpotController {
         }
     }
 
+    @FXML
+    void onFavouriteButtonClick(ActionEvent event) throws Exception {
+        Connection connection = getConnection();
+        String parkingName = parcareAButton.getText();
+        String userName = usernameText.getText();
+        try{
+            updateUsersFavouriteParkingA(connection,userName);
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
+        }
+    }
+
+
 }

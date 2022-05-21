@@ -286,4 +286,16 @@ public class FindParkingSpot2Controller {
         ps.executeUpdate();
         payText.setText("Are you sure that you want to rent this spot? If YES, then press PAY!!!");
     }
+
+    @FXML
+    void onFavouriteButtonClick(ActionEvent event) throws Exception {
+        Connection connection = getConnection();
+        String parkingName = parcareBButton.getText();
+        String userName = usernameText.getText();
+        try{
+            updateUsersFavouriteParkingB(connection,userName);
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
+        }
+    }
 }
