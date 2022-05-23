@@ -101,6 +101,11 @@ public class LoginController{
         try{
             URL url = Paths.get("src/main/resources/com/example/smartparkingapp/register-view.fxml").toUri().toURL();
             root = FXMLLoader.load(url);
+
+            BazaDeDate.deselectFromTable1(getConnection(),usernameField.getText());
+            BazaDeDate.deselectFromTable2(getConnection(),usernameField.getText());
+            BazaDeDate.deselectFromTable3(getConnection(),usernameField.getText());
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
