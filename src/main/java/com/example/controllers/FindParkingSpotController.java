@@ -133,8 +133,8 @@ public class FindParkingSpotController {
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
-            //DepositController depositController = loader.getController();
-            //depositController.setText(usernameText.getText());
+            DepositController depositController = loader.getController();
+            depositController.setText(usernameText.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -331,6 +331,5 @@ public class FindParkingSpotController {
             errorLabel.setText(e.getMessage());
         }
     }
-
 
 }

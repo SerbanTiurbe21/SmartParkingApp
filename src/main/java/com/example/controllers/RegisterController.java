@@ -34,7 +34,7 @@ public class RegisterController {
 
     @FXML
     public void initialize(){
-        choiceBoxField.getItems().addAll("CUSTOMER","ADMIN");
+        choiceBoxField.getItems().addAll("client","admin");
     }
 
     @FXML
