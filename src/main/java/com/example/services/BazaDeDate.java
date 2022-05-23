@@ -582,4 +582,36 @@ public class BazaDeDate {
             e.printStackTrace();
         }
     }
+
+    public static String getUsername(Connection connection, String username){
+        String myName = new String();
+        try{
+            String sql = "SELECT username from users where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                myName = rs.getString(1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return myName;
+    }
+
+    public static int getIdUsers(Connection connection){
+        int count = 0;
+        try{
+            String sql = "SELECT idusers from users";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                count++;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return count;
+    }
+
 }
