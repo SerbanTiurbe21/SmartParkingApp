@@ -552,7 +552,7 @@ public class BazaDeDate {
 
     public static void deselectFromTable1(Connection connection, String username){
         try{
-            String sql = "UPDATE parcare1 set username = null where username = ?";
+            String sql = "UPDATE parcare1 set username = null, isoccupied = 0 where username = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,username);
             preparedStatement.executeUpdate();
@@ -563,7 +563,7 @@ public class BazaDeDate {
 
     public static void deselectFromTable2(Connection connection, String username){
         try{
-            String sql = "UPDATE parcare2 set username = null where username = ?";
+            String sql = "UPDATE parcare2 set username = null, isoccupied = 0 where username = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,username);
             preparedStatement.executeUpdate();
@@ -574,7 +574,7 @@ public class BazaDeDate {
 
     public static void deselectFromTable3(Connection connection, String username){
         try{
-            String sql = "UPDATE parcare3 set username = null where username = ?";
+            String sql = "UPDATE parcare3 set username = null, isoccupied = 0 where username = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,username);
             preparedStatement.executeUpdate();
