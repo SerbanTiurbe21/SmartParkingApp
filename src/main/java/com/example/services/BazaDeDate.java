@@ -34,7 +34,7 @@ public class BazaDeDate {
     }
 
     public static void insertValues(Connection connection,String username, String password, String role, int balance, String plateNumber) throws SQLException, CompleteRegisterDataException, UsernameNotLongEnoughException, PasswordNotLongEnoughException, PasswordNotStrongEnoughException, UserAlreadyExistsException, InvalidPlateNumberException, NotAnAdminException {
-        String sqlInsertwithParams = "INSERT INTO users(username,password,role,balance,platenumber)" + "VALUES(?,?,?,?,?)";
+        String sqlInsertwithParams = "INSERT INTO users(username,password,role,balance,platenumber,parkA,parkB,parkC)" + "VALUES(?,?,?,?,?,?,?,?)";
         //checkCredentials(username,password);
         checkRegisterDataNotEmpty(username,password);
         userAlreadyExists(connection,username);
@@ -53,6 +53,9 @@ public class BazaDeDate {
             preparedStatement.setString(3,role);
             preparedStatement.setInt(4,balance);
             preparedStatement.setString(5,plateNumber);
+            preparedStatement.setInt(6,0);
+            preparedStatement.setInt(7,0);
+            preparedStatement.setInt(8,0);
 
             connection.setAutoCommit(false);
             preparedStatement.executeUpdate();
@@ -549,7 +552,7 @@ public class BazaDeDate {
 
     public static void deselectFromTable1(Connection connection, String username){
         try{
-            String sql = "UPDATE parcare1 set username = null where username = ?";
+            String sql = "UPDATE parcare1 set username = null, isoccupied = false where username = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,username);
             preparedStatement.executeUpdate();
@@ -560,7 +563,7 @@ public class BazaDeDate {
 
     public static void deselectFromTable2(Connection connection, String username){
         try{
-            String sql = "UPDATE parcare2 set username = null where username = ?";
+            String sql = "UPDATE parcare2 set username = null, isoccupied = false where username = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,username);
             preparedStatement.executeUpdate();
@@ -571,7 +574,7 @@ public class BazaDeDate {
 
     public static void deselectFromTable3(Connection connection, String username){
         try{
-            String sql = "UPDATE parcare3 set username = null where username = ?";
+            String sql = "UPDATE parcare3 set username = null, isoccupied = false where username = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,username);
             preparedStatement.executeUpdate();
