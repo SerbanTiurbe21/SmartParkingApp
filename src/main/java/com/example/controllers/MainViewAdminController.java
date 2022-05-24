@@ -62,7 +62,7 @@ public class MainViewAdminController {
     @FXML
     void onModifySpotButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/modify-parkingSpot1-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\modify-parkingSpot1-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -80,7 +80,7 @@ public class MainViewAdminController {
     @FXML
     void onPaymentHistoryButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/seePaymentHistoryAll-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\seePaymentHistoryAll-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -99,7 +99,7 @@ public class MainViewAdminController {
     @FXML
     void onPreviousPageButton(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/login-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\login-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

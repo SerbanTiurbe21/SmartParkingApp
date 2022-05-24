@@ -58,7 +58,7 @@ public class LoginController{
                     getUserPlateNumber(getConnection(),
                             usernameField.getText()))==true && getUserRole(getConnection(),usernameField.getText()).equals("client")){
 
-                URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-view.fxml").toUri().toURL();
+                URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\main-view.fxml").toUri().toURL();
                 FXMLLoader loader = new FXMLLoader(url);
                 root = loader.load();
 
@@ -78,7 +78,7 @@ public class LoginController{
                             usernameField.getText()),
                     getUserPlateNumber(getConnection(),
                             usernameField.getText()))==true && getUserRole(getConnection(),usernameField.getText()).equals("admin")){
-                URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-admin-view.fxml").toUri().toURL();
+                URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\main-admin-view.fxml").toUri().toURL();
                 FXMLLoader loader = new FXMLLoader(url);
                 root = loader.load();
 
@@ -99,7 +99,7 @@ public class LoginController{
     @FXML
     void onRegisterButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/register-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\register-view.fxml").toUri().toURL();
             root = FXMLLoader.load(url);
 
             BazaDeDate.deselectFromTable1(getConnection(),usernameField.getText());

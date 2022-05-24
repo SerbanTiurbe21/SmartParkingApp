@@ -108,7 +108,7 @@ public class FindParkingSpotController {
     @FXML
     void onPreviousPageButtonClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/main-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\main-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -129,7 +129,7 @@ public class FindParkingSpotController {
     @FXML
     void onBackToDepsositClick(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/deposit-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\deposit-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -150,7 +150,7 @@ public class FindParkingSpotController {
     @FXML
     void onParcareAButtonClick(ActionEvent event) {
         try {
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/findParkingSpot-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\findParkingSpot-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -169,7 +169,7 @@ public class FindParkingSpotController {
     @FXML
     void onParcareBButtonClick(ActionEvent event) {
         try {
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/findParkingSpot2-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\findParkingSpot2-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
@@ -188,7 +188,7 @@ public class FindParkingSpotController {
     @FXML
     void onParcareCButtonClick(ActionEvent event) {
         try {
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/findParkingSpot3-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\findParkingSpot3-view.fxml").toUri().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             root = loader.load();
 
