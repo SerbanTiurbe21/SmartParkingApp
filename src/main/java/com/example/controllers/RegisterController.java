@@ -73,7 +73,7 @@ public class RegisterController {
     @FXML
     void onBackToLogInButton(ActionEvent event) {
         try{
-            URL url = Paths.get("src/main/resources/com/example/smartparkingapp/login-view.fxml").toUri().toURL();
+            URL url = Paths.get("C:\\Users\\Lenovo\\IdeaProjects\\SmartParkingApp\\src\\main\\resources\\com\\example\\smartparkingapp\\login-view.fxml").toUri().toURL();
             root = FXMLLoader.load(url);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
